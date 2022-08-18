@@ -5,11 +5,14 @@ import './Login.css';
 export interface ILoginPageProps {}
 
 const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
+    interface IError {
+        code: string;
+        message: string;
+    }
     const info = {
         email: '',
         password: ''
     };
-
     const auth = getAuth();
     const navigate = useNavigate();
     const [authing, setAuthing] = useState(false);
@@ -25,12 +28,10 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
         setLoading(true);
 
         signInWithPopup(auth, new GoogleAuthProvider())
-            .then((response) => {
-                console.log(response.user.uid);
-                navigate('/');
+            .then(() => {
+                navigate('/homepage');
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
                 setAuthing(false);
             })
             .finally(() => {
@@ -43,29 +44,10 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
         setLoading(true);
 
         signInWithPopup(auth, new FacebookAuthProvider())
-            .then((result) => {
-                // The signed-in user info.
-                const user = result.user;
-
-                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-                const credential = FacebookAuthProvider.credentialFromResult(result);
-                const accessToken = credential?.accessToken;
-                console.log(accessToken);
-
-                console.log('done');
-                navigate('/');
-                // ...
+            .then(() => {
+                navigate('/homepage');
             })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = FacebookAuthProvider.credentialFromError(error);
-
-                // ...
+            .catch(() => {
                 setAuthing(false);
             })
             .finally(() => {
@@ -78,14 +60,10 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
         setLoading(true);
 
         signInWithPopup(auth, new GithubAuthProvider())
-            .then((result) => {
-                navigate('/');
-                console.log(result.user);
-
-                console.log('done !');
+            .then(() => {
+                navigate('/homepage');
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
                 setAuthing(false);
             })
             .finally(() => {
@@ -93,42 +71,53 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
             });
     };
 
-    // const email = "hei.judicael@gmail.com";
-    // const pwd = "jojo2121";
-
     const logInWithEmailAndPassword = async () => {
         setLoading1(true);
-        console.log('Sign In function is running ...');
         try {
             await signInWithEmailAndPassword(auth, data.email, data.password);
-            navigate('/');
-        } catch (error: any) {
-           if (error.code === 'auth/wrong-password') {
-               setErrorMessage('Wrong password. Please try again');
-           } else if (error.code === 'auth/invalid-email') {
-               setErrorMessage('Please provide a valid email');
-           } else if (error.code === 'auth/weak-password') {
-               setErrorMessage('The password is too weak.');
-           } 
+            navigate('/homepage');
+        } catch (error: IError | any) {
+            if (error.code === 'auth/wrong-password') {
+                setErrorMessage('Wrong password. Please try again');
+            } else if (error.code === 'auth/invalid-email') {
+                setErrorMessage('Please provide a valid email');
+            } else if (error.code === 'auth/weak-password') {
+                setErrorMessage('The password is too weak.');
+            } else if (error.code == 'auth/user-not-found') {
+                setErrorMessage('This user does not exist');
+            }
         } finally {
             setLoading1(false);
         }
     };
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
         setData((prevState) => ({ ...prevState, [name]: value }));
     };
 
-    const togglePassword = () =>{
+    const togglePassword = (): void => {
         if (inputType === 'password') {
-          setInputType('text');
-          setEyeIcon('fa-eye');   
+            setInputType('text');
+            setEyeIcon('fa-eye');
         } else {
-             setInputType('password');
-             setEyeIcon('fa-eye-slash');   
+            setInputType('password');
+            setEyeIcon('fa-eye-slash');
         }
-    }
+    };
+
+    const checker = (): void => {
+        if (data.email.length === 0) {
+            setErrorMessage('The mail field cannot be empty');
+        } else if (data.password.length === 0) {
+            setErrorMessage('The password field is empty');
+        } else if (data.password.length < 6) {
+            setErrorMessage('The password is too weak');
+        } else {
+            logInWithEmailAndPassword();
+        }
+    };
+
     return (
         <div className="container__all">
             <div className="container__all__type">
@@ -144,12 +133,12 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
                             <span className="input__label">Password</span>
                             <i className={`fa ${eyeIcon}`} onClick={togglePassword} />
                         </div>
-                        <button type="button" className="form__validate" onClick={logInWithEmailAndPassword}>
+                        <button type="button" className="form__validate" onClick={checker}>
                             {loading1 ? <i className="fa fa-spinner fa-spin" /> : <>Log in</>}
                         </button>
                     </div>
                 </form>
-                <span className='text-center text-danger mt-1'>{errorMessage}</span>
+                <span className="text-center text-danger mt-1">{errorMessage}</span>
                 <p className="text-center my-3">
                     <i className="bi bi-dash mx-4" />
                     {loading ? <i className="fa fa-spinner fa-spin" /> : <span className="transition__text">Or continue with</span>}

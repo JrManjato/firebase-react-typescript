@@ -9,7 +9,7 @@
 
 .welcome__message{
     text-align: center;
-    animation: slideDown 2s;
+    animation: slider 2s;
 }
 
 .button__logout {
@@ -25,7 +25,7 @@
     padding: 0.5rem 0.7rem;
     transition: 0.2s ease;
     cursor: pointer;
-    animation: slideDown 3.5s;
+    animation: slider 3.5s;
 }
 
 .button__logout:hover {
@@ -44,7 +44,7 @@
 }
 
 
-@keyframes slideDown {
+@keyframes slider {
     from {
         transform: translateX(-170px);
         opacity: 0;

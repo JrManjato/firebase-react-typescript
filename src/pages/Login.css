@@ -22,6 +22,7 @@
     border: 3px solid #fff; 
     border-radius: 10px; 
     background-color: rgba(250,250,250,0.7);
+    animation: reveal 1s;
 } 
 
 
@@ -279,4 +280,15 @@ em{
 
 .text-danger{
     font-size: 0.8rem;
+}
+
+@keyframes reveal {
+    from {
+        transform: translateX(-170px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

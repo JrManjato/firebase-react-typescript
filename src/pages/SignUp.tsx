@@ -13,10 +13,11 @@ export default function SignUp() {
     const [loading, setLoading] = useState(false);
     const [inputType, setInputType] = useState('password');
     const [eyeIcon, setEyeIcon] = useState('fa-eye-slash');
+    const [errorMessage, setErrorMessage] = useState('');
     const auth = getAuth();
     const navigate = useNavigate();
 
-    const togglePassword = () => {
+    const togglePassword = (): void => {
         if (inputType === 'password') {
             setInputType('text');
             setEyeIcon('fa-eye');
@@ -26,36 +27,40 @@ export default function SignUp() {
         }
     };
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
         setData((prevState) => ({ ...prevState, [name]: value }));
     };
 
     const signUpWithEmailAndPwd = async () => {
         setLoading(true);
-        
+
         createUserWithEmailAndPassword(auth, data.email, data.password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
-                // ...
-                console.log(user.displayName);
 
-                navigate('/');
+                navigate('/homepage');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-
-                if (errorCode == 'email-already-in-use') {
-                    alert('You already have an account with that email.');
-                }
-                // ..
+                const errorCode = error.code;               
             })
             .finally(() => {
                 setLoading(false);
             });
     };
+
+    const checker = (): void => {
+        if (data.email.length === 0) {
+            setErrorMessage('The mail field cannot be empty');
+        } else if (data.password.length === 0) {
+            setErrorMessage('The password field is empty');
+        } else if (data.password.length < 6) {
+            setErrorMessage('The password is too weak');
+        } else {
+            signUpWithEmailAndPwd();
+        }
+    } 
+
     return (
         <div className="container__all">
             <div className="container__all__type signup__container">
@@ -71,18 +76,18 @@ export default function SignUp() {
                             <span className="input__label">Password</span>
                             <i className={`fa ${eyeIcon}`} onClick={togglePassword} />
                         </div>
-                        <button type="button" className="form__validate" onClick={signUpWithEmailAndPwd}>
+                        <button type="button" className="form__validate" onClick={checker}>
                             {loading ? <i className="fa fa-spinner fa-spin" /> : <>Sign Up</>}
                         </button>
+                        <span className="text-center text-danger mt-1 ms-5">{errorMessage}</span>
                         <p className="my-4 text-center">
                             <em> Already have an account?</em>
-                            <a onClick={() => navigate('/login')} className="signup_link ms-2">
+                            <a onClick={() => navigate('/')} className="signup_link ms-2">
                                 Sign In
                             </a>
                         </p>
                     </div>
                 </form>
-                ;
             </div>
         </div>
     );

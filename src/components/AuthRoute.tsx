@@ -7,7 +7,6 @@ export interface IAuthRouteProps {}
 const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
     const { children } = props;
     const auth = getAuth();
-    const user = auth.currentUser;
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
@@ -18,7 +17,7 @@ const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
                 console.log(user.photoURL);
             } else {
                 console.log('unauthorized: Forcing url');
-                navigate('/login');
+                navigate('/');
             }
         });
 

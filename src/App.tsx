@@ -7,7 +7,6 @@ import { config } from './config/config';
 import AuthRoute from './components/AuthRoute';
 import SignUp from './pages/SignUp';
 
-
 initializeApp(config.firebaseConfig);
 
 export interface IApplicationProps {}
@@ -17,7 +16,7 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
         <BrowserRouter>
             <Routes>
                 <Route
-                    path="/"
+                    path="/homepage"
                     element={
                         <AuthRoute>
                             <HomePage />
@@ -25,7 +24,7 @@ const Application: React.FunctionComponent<IApplicationProps> = (props) => {
                     }
                 />
                 <Route
-                    path="/login"
+                    path="/"
                     element={
                         <AuthRoute>
                             <LoginPage />
