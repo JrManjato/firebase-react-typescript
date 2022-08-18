@@ -1,0 +1,282 @@
+* {
+  --var-color: #ffdad2;
+  --firs-color: #660033;
+}
+.container__all {
+    margin: 0;
+    padding: 0;
+    background-image: url(/src/images/aesthetic-minimalist-room.webp);
+    height: 100%;
+    padding: 8.2% 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(100% 140%);
+}
+
+.container__all__type {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    border: 3px solid #fff; 
+    border-radius: 10px; 
+    background-color: rgba(250,250,250,0.7);
+} 
+
+
+.forms{
+  width: 70%;
+  margin: auto;
+}
+
+.floating-form {
+    width: 100%;
+}
+
+/****  floating-Lable style start ****/
+.floating-label {
+    margin-block: 2.3rem;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.fa-eye, .fa-eye-slash{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #660033;
+    margin-top: 0.7rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.floating-input,
+.floating-select {
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(255, 255, 255,0.5);
+    border: none;
+    border-radius: 6px;
+    padding-left: 1.1rem;
+}
+
+.floating-input:focus,
+.floating-select:focus {
+    outline: none;
+    border-bottom: 2px solid #660033;
+}
+
+.input__label {
+    color: #660033;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 1rem;
+    top: 9px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating-input:focus ~ span,
+.floating-input:not(:placeholder-shown) ~ span {
+    top: -25px;
+    font-size: 14px;
+    color: #660033;
+}
+
+.floating-select:focus ~ span,
+.floating-select:not([value='']):valid ~ span {
+    top: -18px;
+    font-size: 14px;
+    color: #5264ae;
+}
+
+/* active state */
+.floating-input:focus ~ .bar:before,
+.floating-input:focus ~ .bar:after,
+.floating-select:focus ~ .bar:before,
+.floating-select:focus ~ .bar:after {
+    width: 50%;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h1{
+  margin-bottom: 0%;
+  margin-top: 0.4rem;
+  color: #660033;
+}
+.floating-textarea {
+    min-height: 30px;
+    max-height: 260px;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+/* highlighter */
+.highlight {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 15%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+.floating-input:focus ~ .highlight,
+.floating-select:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* animation */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/****  floating-Lable style end ****/
+
+/***   daniel - Fork me friend - style   ***/
+.floating-credit {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 13px;
+    font-family: arial, sans-serif;
+}
+.floating-credit a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.floating-credit a:hover {
+    border-bottom: 1px dotted #f8f8f8;
+}
+.floating-heading {
+    position: fixed;
+    color: #aaa;
+    font-size: 20px;
+    font-family: arial, sans-serif;
+}
+/***  daniel - Fork me friend - style  ***/
+
+.form__validate {
+    margin-top: 1rem;
+    border: 0;
+    width: 100%;
+    border: 2px solid #DAAA9F;
+    background-color: #DAAA9F;
+    color: white;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    padding: 0.3rem 0.7rem;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.form__validate:hover {
+    margin-top: 1rem;
+    border: 0;
+    width: 100%;
+    border: 2px solid #DAAA9F;
+    background-color: rgba(250,250,250,0.7);
+    color: #DAAA9F;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    padding: 0.3rem 0.7rem;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.icon__groups{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.icon__button{
+  padding: 0.3rem 0.5rem;
+  border: 2px solid white;
+  border-radius: 6px;
+  width: 12%;
+   transition: 0.4s ease-in-out;
+}
+
+.icon__button:hover{
+  padding: 0.3rem 0.5rem;
+  border: 2px solid #ffdad2;
+  border-radius: 6px;
+  width: 12%;
+  box-shadow: 0 0 5px var(--var-color), 0 0 10px var(--var-color), 0 0 22px var(--var-color);
+}
+
+.transition__text{
+    color: var(--firs-color);
+}
+
+.bi-dash::before{
+ transform: scaleX(600%);
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-facebook {
+  color: #4267B2;
+}
+
+.signup_link{
+  color: #01d104;
+}
+
+em{
+    font-style: normal;
+    color: var(--firs-color);
+}
+
+.text-danger{
+    font-size: 0.8rem;
+}
