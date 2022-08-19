@@ -134,7 +134,7 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
                             <i className={`fa ${eyeIcon}`} onClick={togglePassword} />
                         </div>
                         <button type="button" className="form__validate" onClick={checker}>
-                            {loading1 ? <i className="fa fa-spinner fa-spin" /> : <>Log in</>}
+                            {loading1 ? <i className="fa fa-spinner fa-spin" /> : <span className='button__text'>Log in</span>}
                         </button>
                     </div>
                 </form>
@@ -145,17 +145,17 @@ const LoginPage: React.FunctionComponent<ILoginPageProps> = () => {
                     <i className="bi bi-dash mx-4" />
                 </p>
                 <div className="icon__groups">
-                    <button onClick={() => signInWithGoogle()} disabled={authing} className="icon__button mx-4">
-                        <i className="fab fa-google fa-2x" />
+                    <button onClick={() => signInWithGoogle()} disabled={authing} className="icon__button">
+                        <i className="fab fa-google fa-2x text-center" />
                     </button>
-                    <button onClick={() => signInWithFacebook()} disabled={authing} className="icon__button mx-4">
+                    <button onClick={() => signInWithFacebook()} disabled={authing} className="icon__button">
                         <i className="fab fa-facebook fa-2x" />
                     </button>
-                    <button onClick={() => signInWithGithub()} disabled={authing} className="icon__button mx-4">
+                    <button onClick={() => signInWithGithub()} disabled={authing} className="icon__button">
                         <i className="fab fa-github fa-2x" />
                     </button>
                 </div>
-                <p className="my-4 text-center">
+                <p className="my-4 text-center text__bottom">
                     <em>Don't have any account yet?</em>
                     <a onClick={() => navigate('/signup')} className="signup_link ms-1">
                         Sign Up here

@@ -1,6 +1,6 @@
 * {
-  --var-color: #ffdad2;
-  --firs-color: #660033;
+    --var-color: #ffdad2;
+    --firs-color: #660033;
 }
 .container__all {
     margin: 0;
@@ -19,16 +19,15 @@
     flex-direction: column;
     width: 30%;
     margin: auto;
-    border: 3px solid #fff; 
-    border-radius: 10px; 
-    background-color: rgba(250,250,250,0.7);
+    border: 3px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(250, 250, 250, 0.7);
     animation: reveal 1s;
-} 
+}
 
-
-.forms{
-  width: 70%;
-  margin: auto;
+.forms {
+    width: 70%;
+    margin: auto;
 }
 
 .floating-form {
@@ -42,7 +41,8 @@
     margin-bottom: 20px;
 }
 
-.fa-eye, .fa-eye-slash{
+.fa-eye,
+.fa-eye-slash {
     position: absolute;
     top: 0;
     right: 0;
@@ -57,7 +57,7 @@
     display: block;
     width: 100%;
     height: 40px;
-    background-color: rgba(255, 255, 255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
     border-radius: 6px;
     padding-left: 1.1rem;
@@ -111,10 +111,10 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-h1{
-  margin-bottom: 0%;
-  margin-top: 0.4rem;
-  color: #660033;
+h1 {
+    margin-bottom: 0%;
+    margin-top: 0.4rem;
+    color: #660033;
 }
 .floating-textarea {
     min-height: 30px;
@@ -202,8 +202,8 @@ h1{
     margin-top: 1rem;
     border: 0;
     width: 100%;
-    border: 2px solid #DAAA9F;
-    background-color: #DAAA9F;
+    border: 2px solid #daaa9f;
+    background-color: #daaa9f;
     color: white;
     border-radius: 6px;
     font-size: 1.3rem;
@@ -216,9 +216,9 @@ h1{
     margin-top: 1rem;
     border: 0;
     width: 100%;
-    border: 2px solid #DAAA9F;
-    background-color: rgba(250,250,250,0.7);
-    color: #DAAA9F;
+    border: 2px solid #daaa9f;
+    background-color: rgba(250, 250, 250, 0.7);
+    color: #daaa9f;
     border-radius: 6px;
     font-size: 1.3rem;
     padding: 0.3rem 0.7rem;
@@ -226,59 +226,58 @@ h1{
     cursor: pointer;
 }
 
-.icon__groups{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.icon__groups {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.icon__button{
-  padding: 0.3rem 0.5rem;
-  border: 2px solid white;
-  border-radius: 6px;
-  width: 12%;
-   transition: 0.4s ease-in-out;
+.icon__button {
+    padding: 0.3rem 0.5rem;
+    border: 2px solid white;
+    border-radius: 6px;
+    transition: 0.4s ease-in-out;
+    margin-inline: 1.5rem;
 }
 
-.icon__button:hover{
-  padding: 0.3rem 0.5rem;
-  border: 2px solid #ffdad2;
-  border-radius: 6px;
-  width: 12%;
-  box-shadow: 0 0 5px var(--var-color), 0 0 10px var(--var-color), 0 0 22px var(--var-color);
+.icon__button:hover {
+    padding: 0.3rem 0.5rem;
+    border: 2px solid #ffdad2;
+    border-radius: 6px;
+    box-shadow: 0 0 5px var(--var-color), 0 0 10px var(--var-color), 0 0 22px var(--var-color);
 }
 
-.transition__text{
+.transition__text {
     color: var(--firs-color);
 }
 
-.bi-dash::before{
- transform: scaleX(600%);
+.bi-dash::before {
+    transform: scaleX(600%);
 }
 
 .fa-google {
-  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 .fa-facebook {
-  color: #4267B2;
+    color: #4267b2;
 }
 
-.signup_link{
-  color: #01d104;
+.signup_link {
+    color: #01d104;
 }
 
-em{
+em {
     font-style: normal;
     color: var(--firs-color);
 }
 
-.text-danger{
+.text-danger {
     font-size: 0.8rem;
 }
 
@@ -291,4 +290,193 @@ em{
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+/*========== MEDIA QUERIES ==========*/
+
+/* For full-screen images on small screens */
+@media screen and (max-width: 359px) {
+    .container__all__type {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: auto;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(250, 250, 250, 0.7);
+        animation: reveal 1s;
+    }
+    .button__text {
+        font-size: 1.2rem;
+    }
+    .text__bottom,
+    .transition__text,
+    .input__label {
+        font-size: 0.6rem;
+    }
+    .icon__button {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.3rem 0.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: 0.4s ease-in-out;
+        margin-inline: 0.3rem;
+    }
+    .fab {
+        font-size: 1rem;
+    }
+    .welcome__message {
+        text-align: center;
+        animation: slider 2s;
+        font-size: 0.8rem;
+    }
+    .button__logout {
+        width: 50%;
+        font-size: 0.8rem;
+        padding: 0.1rem 0.2rem;
+    }
+    .home_page__container{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 359px) and (max-width: 576px) {
+    .container__all__type {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(250, 250, 250, 0.7);
+        animation: reveal 1s;
+    }
+    .button__text {
+        font-size: 1.2rem;
+    }
+    .text__bottom,
+    .transition__text,
+    .input__label {
+        font-size: 0.7rem;
+    }
+    .icon__button {
+        padding: 0.3rem 0.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: 0.4s ease-in-out;
+        margin-inline: 0.4rem;
+    }
+    .fab {
+        font-size: 1.2rem;
+    }
+    .welcome__message {
+        text-align: center;
+        animation: slider 2s;
+        font-size: 1rem;
+    }
+    .button__logout {
+        font-size: 0.83rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .container__all__type {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(250, 250, 250, 0.7);
+        animation: reveal 1s;
+    }
+    .text__bottom,
+    .transition__text,
+    .input__label {
+        font-size: 0.8rem;
+    }
+    .icon__button {
+        padding: 0.3rem 0.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: 0.4s ease-in-out;
+        margin-inline: 0.65rem;
+    }
+    .fab {
+        font-size: 1.5rem;
+    }
+    .welcome__message {
+        text-align: center;
+        animation: slider 2s;
+        font-size: 1.2rem;
+    }
+    .button__logout {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+    .container__all__type {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        margin: auto;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(250, 250, 250, 0.7);
+        animation: reveal 1s;
+    }
+    .text__bottom,
+    .transition__text,
+    .input__label {
+        font-size: 0.9rem;
+    }
+    .icon__button {
+        padding: 0.3rem 0.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: 0.4s ease-in-out;
+        margin-inline: 1.1rem;
+    }
+    .fab {
+        font-size: 1.7rem;
+    }
+    .welcome__message {
+        text-align: center;
+        animation: slider 2s;
+        font-size: 1.4rem;
+    }
+    .button__logout {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .container__all__type {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: auto;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        background-color: rgba(250, 250, 250, 0.7);
+        animation: reveal 1s;
+    }
+    .icon__button {
+        padding: 0.3rem 0.5rem;
+        border: 2px solid white;
+        border-radius: 6px;
+        transition: 0.4s ease-in-out;
+        margin-inline: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 968px) {
+}
+
+@media (min-width: 900px) {
 }

@@ -77,10 +77,10 @@ export default function SignUp() {
                             <i className={`fa ${eyeIcon}`} onClick={togglePassword} />
                         </div>
                         <button type="button" className="form__validate" onClick={checker}>
-                            {loading ? <i className="fa fa-spinner fa-spin" /> : <>Sign Up</>}
+                            {loading ? <i className="fa fa-spinner fa-spin" /> : <span className='button__text'>Sign Up</span>}
                         </button>
                         <span className="text-center text-danger mt-1 ms-5">{errorMessage}</span>
-                        <p className="my-4 text-center">
+                        <p className="my-4 text-center text__bottom">
                             <em> Already have an account?</em>
                             <a onClick={() => navigate('/')} className="signup_link ms-2">
                                 Sign In

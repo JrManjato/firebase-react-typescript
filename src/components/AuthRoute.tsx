@@ -14,9 +14,9 @@ const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
         const AuthCheck = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setLoading(false);
-                console.log(user.photoURL);
+                // console.log(user.photoURL);
             } else {
-                console.log('unauthorized: Forcing url');
+                console.log('Unauthorized: Forcing url...');
                 navigate('/');
             }
         });
